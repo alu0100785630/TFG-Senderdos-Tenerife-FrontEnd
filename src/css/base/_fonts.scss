@@ -1,0 +1,5 @@
+//Even if the fonts are 2 directories up, this file is imported in main.scss, which is already 1 directory up
+@font-face {
+  font-family: 'Inter';
+  src: url(../fonts/Inter-Regular-slnt=0.ttf);
+}
