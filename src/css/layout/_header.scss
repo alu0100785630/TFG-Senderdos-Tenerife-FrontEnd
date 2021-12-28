@@ -1,0 +1,38 @@
+header {
+  background-color: $primary;
+
+  .nav {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo-link {
+      .header-logo {
+        img {
+          max-height: 65px;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+    .user-links, .login-links {
+      .user-link, .login-link{
+        color: $font_primary;
+        &:not(:last-child) {
+          margin-right: 2.5rem;
+        }
+      }
+      .profile {
+        .user-img {
+          max-height: 35px;
+          object-fit: cover;
+          object-position: center;
+          opacity: .9;
+        }
+        .user-name {
+          margin-left: .8rem;
+        }
+      }
+    }
+  }
+}
