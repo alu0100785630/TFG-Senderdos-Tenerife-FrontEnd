@@ -98,7 +98,11 @@ module.exports = {
     
 
     //We inlcude vendor.js because we don't expect to do much changes there. It'd be deleted otherwise.
-    new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['!img/*', '!fonts/*', '!vendor*'], verbose: true }),
+    new CleanWebpackPlugin({ 
+      cleanAfterEveryBuildPatterns: ['!img/*', '!fonts/*'],
+      cleanStaleWebpackAssets: true,
+      verbose: true 
+    }),
 
   ],
 
