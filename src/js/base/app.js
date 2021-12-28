@@ -7,5 +7,5 @@ export const run = ()=> {
   menuFunctions();
   generalFunctions();
 
-  console.log('Main Script Runnning');
+  console.log('Main Script Runnning | App started');
 }
