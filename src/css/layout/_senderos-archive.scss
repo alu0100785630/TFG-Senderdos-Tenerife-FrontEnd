@@ -1,9 +1,6 @@
 .archive {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   .senderos {
+    padding: 60px 0;
     min-height: 68.25rem;
     &__data {
       display: flex; 
