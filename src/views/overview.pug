@@ -22,30 +22,31 @@ block content
             input.search(type='text' name='search' placeholder='Buscar...')
       
       .senderos__items
-        .senderos__items--single
-          .sendero-container
-            img.sendero-img(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
-            .sendero-data
-              .sendero-data__title
-                h3.sendero-data__title--name Ruta de Masca
-                span.sendero-data__title--dificultad Difícil
-              
-              .sendero-data__info
-                .sendero-data__info--rating
-                  - let average = 3.6
-                  - let rating = (average / 5) * 100
-                  .reviews-avg
-                    .empty-stars
-                    .full-stars(style=`width: ${rating}%`)
-                  .reviews-avg-n= average
-                .sendero-data__info--price 35€
-              
-              .sendero-data__location Buenavista del Norte
-              
-              .sendero-data__date
-                .sendero-data__date--date Junio 2022
-                .sendero-data__date--duration 5h
-              
-              .sendero-data__book
-                a.info-button.ov-button(href='./') Info
-                .book-button.ov-button Reserva
+        - let average = 3.6
+        - let rating = (average / 5) * 100
+        each val in [1, 2, 3, 4, 5, 6]
+          .senderos__items--single
+            .sendero-container
+              img.sendero-img(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
+              .sendero-data
+                .sendero-data__title
+                  h3.sendero-data__title--name Ruta de Masca
+                  span.sendero-data__title--dificultad Difícil
+                
+                .sendero-data__info
+                  .sendero-data__info--rating
+                    .reviews-avg
+                      .empty-stars
+                      .full-stars(style=`width: ${rating}%`)
+                    .reviews-avg-n= average
+                  .sendero-data__info--price 35€
+                
+                .sendero-data__location Buenavista del Norte
+                
+                .sendero-data__date
+                  .sendero-data__date--date Junio 2022
+                  .sendero-data__date--duration 5h
+                
+                .sendero-data__book
+                  a.info-button.ov-button(href='./') Info
+                  .book-button.ov-button Reserva
