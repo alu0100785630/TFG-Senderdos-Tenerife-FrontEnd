@@ -13,4 +13,10 @@ body {
   background-color: $bg_color;
   font-size: 1.5rem;
   font-family: 'Inter';
+  color: $primary;
+
+  .page-content {
+    min-height: calc(100vh - 95px - 42.5px);
+    position: relative;
+  }
 }

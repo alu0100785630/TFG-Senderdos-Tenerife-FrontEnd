@@ -3,8 +3,17 @@ html
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp')
     link(rel='shortcut icon' type='image/png' href=require('../img/menu/teide_logo.png').default)
     title TFG Senderos Tenerife
   body
 
+    //Header
     include _header
+
+    //Content
+    .page-content
+      block content 
+
+    //Footer
+    include _footer

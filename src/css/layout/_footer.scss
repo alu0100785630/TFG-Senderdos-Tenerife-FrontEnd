@@ -1,0 +1,19 @@
+footer {
+  background-color: $primary;
+  padding: 1rem 0;
+   .footer-wrapper {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     color: $font_primary;
+     .footer-item {
+        &:not(:last-child) {
+          margin-right: 2.5rem;
+        }
+      }
+     .footer-email {
+      color: $font_primary;
+      text-decoration: underline;
+     }
+   }
+}
