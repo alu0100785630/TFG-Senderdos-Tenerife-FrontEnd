@@ -6,7 +6,7 @@
       opacity: 0.6;
       object-fit: cover;
       object-position: center;
-      max-height: 45vh;
+      max-height: 47vh;
     }
   }
 
@@ -15,7 +15,7 @@
     border-radius: .5rem .5rem 0 0;
     z-index: 1;
     position: relative;
-    margin-top: -22.5rem;
+    margin-top: -27.5rem;
     .sendero-hero {
       border-bottom: 1px solid #a1a9b266;
       padding: 3.5rem 0;
@@ -193,6 +193,29 @@
         display:flex;
         list-style: none;
         justify-content: center;
+        margin-top: 2rem;
+        li {
+          cursor: pointer;
+          &:not(:last-child) {
+            margin-right: .4rem;
+          }
+          &::after {
+            content: '';
+            display: block;
+            width: .8rem;
+            height: .8rem;
+            background-color: #a1a9b2cc;
+            border-radius: 50%;
+          }
+          button {
+            display: none;
+          }
+        }
+        li.slick-active {
+          &::after {
+            background-color: $primary;
+          }
+        }
       }
       &__single-review {
         padding: 2rem 2.8rem;
