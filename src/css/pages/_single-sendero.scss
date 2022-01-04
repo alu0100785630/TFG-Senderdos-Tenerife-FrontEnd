@@ -165,8 +165,9 @@
     }
 
     .sendero-reviews {
-      padding: 2.5rem 5rem 5rem 5rem;
+      padding: 2.5rem 5rem 7rem 5rem;
       position: relative;
+      gap: 5%;
       .slick-list {
         margin: 0 3rem;
         .slick-track {
@@ -221,6 +222,7 @@
         padding: 2rem 2.8rem;
         border: 1px solid #a1a9b259;
         box-shadow: $box_shadow;
+        max-width: 27.7rem;
         &--user {
           display: flex;
           align-items: center;
