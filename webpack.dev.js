@@ -56,7 +56,6 @@ setTemplatesToRender(fileListHtml, outputFileName, templates, fileExtensionHtml)
 module.exports = {
   mode: 'development',
   entry: {
-    vendor: "./src/js/plugins/vendor.js",
     index: "./src/js/index.js"
   },
 

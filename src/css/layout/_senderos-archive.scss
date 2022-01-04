@@ -125,6 +125,15 @@
                 font-style: italic;
                 font-size: 1.4rem;
               }
+              &--dificultad.dificil {
+                color: #d71b1b;
+              }
+              &--dificultad.medio {
+                color: #d39e01;
+              }
+              &--dificultad.facil {
+                color: #22a922;
+              }
             }
 
             &__info {

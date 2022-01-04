@@ -8,6 +8,7 @@
 
 import '../css/main.scss';
 
+import './plugins/vendor';
 
 /* ---------- Inlcuir JS ---------- */
 import { run } from './base/app';
