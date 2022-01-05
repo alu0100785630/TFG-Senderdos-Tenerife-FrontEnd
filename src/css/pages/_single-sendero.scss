@@ -290,8 +290,9 @@
           display: none;
         }
         .marker {
-          width: 3.5rem;
-          height: 3.5rem;
+          cursor: pointer;
+          width: 3.7rem;
+          height: 3.7rem;
           background: url('../img/pin.png');
           background-position: center;
           background-repeat: no-repeat;
