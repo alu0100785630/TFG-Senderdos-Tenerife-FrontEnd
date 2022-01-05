@@ -7,6 +7,7 @@ export const run = ()=> {
   menuFunctions();
   generalFunctions.greetingFunction();
   generalFunctions.senderoReviews();
+  generalFunctions.mapRender();
 
   console.log('Main Script Runnning | App started');
 }
