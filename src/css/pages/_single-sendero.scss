@@ -289,7 +289,7 @@
         .mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right {
           display: none;
         }
-        .marker {
+        .marker-tfg {
           cursor: pointer;
           width: 3.7rem;
           height: 3.7rem;
@@ -297,6 +297,23 @@
           background-position: center;
           background-repeat: no-repeat;
           background-size: cover;
+        }
+        .mapboxgl-popup {
+          .mapboxgl-popup-content {
+            padding: 1.7rem 2rem;
+            font-size: 1.5rem;
+            color: $primary;
+            box-shadow: 0 4px 10px -5px #84898f;
+            max-width: 18.5rem;
+          }
+          .mapboxgl-popup-close-button {
+            outline: none;
+            border: 0;
+            font-size: 1.7rem;
+            width: 2rem;
+            height: 2rem;
+            top: 2px;
+          }
         }
       }
     }

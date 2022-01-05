@@ -42,13 +42,20 @@ export const mapRender = ()=> {
   
     routeLocations.forEach(el => {
       let markerPin = document.createElement('div');
-      markerPin.classList.add('marker');
+      markerPin.classList.add('marker-tfg');
   
+      const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        el.description
+      );
+      
       new mapboxgl.Marker({
         element: markerPin,
         anchor: 'bottom'
-      }).setLngLat(el.coordenadas).addTo(map);
-  
+      })
+      .setLngLat(el.coordenadas)
+      .setPopup(popup)
+      .addTo(map);
+
       mapBounds.extend(el.coordenadas);
     });
 
@@ -78,9 +85,9 @@ export const mapRender = ()=> {
         'line-cap': 'round'
       },
       'paint': {
-        'line-color': '#1a3955',
+        'line-color': '#44a3d3',
         'line-width': 5,
-        'line-opacity': 0.5
+        'line-opacity': 0.7
       }
     });
   });
