@@ -224,6 +224,7 @@
         border: 1px solid #a1a9b259;
         box-shadow: $box_shadow;
         max-width: 27.7rem;
+        border-radius: 5px;
         &--user {
           display: flex;
           align-items: center;
@@ -281,9 +282,21 @@
       height: 40rem;
       #tfg-map {
         position: absolute;
+        border-radius: 5px;
         top: 0;
         bottom: 0;
         width: 100%;
+        .mapboxgl-ctrl-logo, .mapboxgl-ctrl-bottom-right {
+          display: none;
+        }
+        .marker {
+          width: 3.5rem;
+          height: 3.5rem;
+          background: url('../img/pin.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
       }
     }
   }

@@ -53,4 +53,5 @@ block content
                 .full-stars(style=`width: ${rating}%`)
       
       .sendero-map
-        #tfg-map
+        //locations == ${JSON.stringify(sendero.locations)}
+        #tfg-map(data-locations='[{"description": "Lummus Park Beach","type": "Point", "coordenadas":[-16.840290563079343, 28.307530289644696]},{"description": "Islamorada","type": "Point","coordenadas":[-16.83999673947223, 28.30242174461416]}]')

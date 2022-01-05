@@ -24,11 +24,34 @@ export const senderoReviews = () => {
 }
 
 export const mapRender = ()=> {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYWxkb3JkYXIiLCJhIjoiY2t5MWRuOXYxMGFrdDJ1bzY5ZDlqcng5bCJ9.bx4weBBXgUG6lL_HI2WRPA';
-  const map = new mapboxgl.Map({
-    container: 'tfg-map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [-74.5, 40], // starting position [lng, lat]
-    zoom: 9 // starting zoom
-  });
+  let mapEl = document.getElementById('tfg-map');
+  if (mapEl) {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxkb3JkYXIiLCJhIjoiY2t5MWkxNTd1MGJ1eTJ4bWtvNDVxemJvaiJ9.kZlkZTEyQb6Vs872TT00Iw';
+    const map = new mapboxgl.Map({
+      container: 'tfg-map', // container ID
+      style: 'mapbox://styles/aldordar/cky1dy36d0jzl14qcyhuceb3q', // style URL
+      zoom: 4,
+      maxZoom: 13.5
+    });
+  
+    let routeLocations = JSON.parse(mapEl.dataset.locations);
+  
+    map.addControl(new mapboxgl.NavigationControl());
+  
+    const mapBounds = new mapboxgl.LngLatBounds();
+  
+    routeLocations.forEach(el => {
+      let markerPin = document.createElement('div');
+      markerPin.classList.add('marker');
+  
+      new mapboxgl.Marker({
+        element: markerPin,
+        anchor: 'bottom'
+      }).setLngLat(el.coordenadas).addTo(map);
+  
+      mapBounds.extend(el.coordenadas);
+    });
+  
+    map.fitBounds(mapBounds);
+  }
 }
