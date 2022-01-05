@@ -21,36 +21,39 @@
           margin-right: 2.5rem;
           li.page-item {
             cursor: pointer;
-            padding: .7rem;
-            margin: 0 2px;
             line-height: 1;
-            background-color: $bg_color_white;
             // border: 1px solid $primary;
-            border-radius: .5rem;
             &:hover:not(.disabled) {
-              background-color: $primary;
-              color: $font_primary;
-              .page-link {
+              .page-link, .prev-page, .next-page {
+                background-color: $primary;
                 color: $font_primary;
               }
             }
-            .page-link {
-              background-color: transparent;
+            .page-link, .prev-page, .next-page {
               color: $primary;
+              background-color: $bg_color_white;
               border: 0;
-              margin: 0;
+              margin: 0 2px;
               line-height: 1;
-              padding: 0 2px;
+              padding: 0;
+              border-radius: .5rem;
+              width: 2.9rem;
+              height: 2.9rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
             }
           }
-          li.page-item.current, li.page-item.current .page-link {
+          li.page-item.current .page-link {
             background-color: $primary;
             color: $font_primary;
             font-weight: 600;
           }
           li.page-item.disabled {
-            color: $font_tertiary;
-            // border: 1px solid $font_tertiary;
+            pointer-events: none;
+            i {
+              color: $font_tertiary;
+            }
           }
         }
 

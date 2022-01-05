@@ -25,7 +25,7 @@ block content
         - let average = 3.6
         - let rating = (average / 5) * 100
         each val in [1, 2, 3, 4, 5, 6]
-          .senderos__items--single
+          .senderos__items--single(class=val)
             .sendero-container
               img.sendero-img(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
               .sendero-data
