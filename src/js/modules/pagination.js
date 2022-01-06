@@ -1,7 +1,7 @@
 export const paginate = ()=> {
 
   let currentPage = 1;
-  let itemsPerPage = 2;
+  let itemsPerPage = 6;
   //Add the class that contains the item
   let itemsClass = '.senderos__items--single';
   //Container of pagination
