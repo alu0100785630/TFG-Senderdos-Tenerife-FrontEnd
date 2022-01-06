@@ -11,7 +11,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const HtmlWebpackPlugin = require('html-webpack-plugin');  
 const MinimizerJS = require('terser-webpack-plugin');  
 const MinimizerCSS = require('css-minimizer-webpack-plugin'); 
-const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, 'src')
@@ -72,7 +72,6 @@ module.exports = {
   mode: 'production',
   devtool: 'inline-source-map',
   entry: {
-    vendor: "./src/js/plugins/vendor.js",
     index: "./src/js/index.js"
   },
 
@@ -106,14 +105,14 @@ module.exports = {
 
     new cssExtractPlugin({
       //We can do this only in prod
-      filename: 'css/main_[fullhash].css'
+      filename: 'css/main.css'
     }),
-    new PurgeCSSPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
-    }),
+    // new PurgecssPlugin({
+    //   paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+    // }),
   ],
   output: {
-    filename: 'js/[name]_[fullhash].js',
+    filename: 'js/[name].js',
     path: path.resolve(__dirname, 'prod'),
   },
 
@@ -145,7 +144,7 @@ module.exports = {
         use: {
           loader: "file-loader",
           options: {
-            name: "[name]_[hash].[ext]",
+            name: "[name].[ext]",
             outputPath: 'img',
             publicPath: '../img',
           }
@@ -155,7 +154,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'file-loader',
         options: {
-          name: '[name]_[hash].[ext]',
+          name: '[name].[ext]',
           outputPath: 'fonts',
           publicPath: '../fonts',
         }
