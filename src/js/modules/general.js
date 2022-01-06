@@ -44,6 +44,7 @@ export const mapRender = ()=> {
       let markerPin = document.createElement('div');
       markerPin.classList.add('marker-tfg');
   
+      let coordinates = el.coordenadas.reverse();
       const popup = new mapboxgl.Popup({ offset: 25 }).setText(
         el.description
       );
@@ -52,11 +53,11 @@ export const mapRender = ()=> {
         element: markerPin,
         anchor: 'bottom'
       })
-      .setLngLat(el.coordenadas)
+      .setLngLat(coordinates)
       .setPopup(popup)
       .addTo(map);
 
-      mapBounds.extend(el.coordenadas);
+      mapBounds.extend(coordinates);
     });
 
   
