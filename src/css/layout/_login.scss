@@ -1,0 +1,76 @@
+.login-section {
+  display: flex;
+  position: absolute;
+  top: 35rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+
+  .login-form-wrapper {
+    background-color: $bg_color_white;
+    padding: 2.5rem 4.5rem;
+    box-shadow: $box_shadow;
+    .logo-dark {
+      max-height: 8rem;
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+  
+    }
+  
+    .login-header {
+      margin-top: 2rem;
+      text-align: center;
+      font-family: 'Inter Med';
+      font-size: 1.6rem;
+    }
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3rem;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child) {
+          margin-bottom: 1.5rem;
+        }
+        .register-mess {
+          margin-top: .5rem;
+          font-size: 1.25rem;
+        }
+      }
+      &__label {
+        font-size: 1.5rem;
+      }
+      &__input {
+        border: 0;
+        outline: 0;
+        font-size: 1.5rem;
+        padding: .7rem 1.5rem;
+        background-color: #b8bfc72b;
+        border-radius: 1rem;
+        line-height: 1;
+        color: $primary;
+        box-shadow: $box_shadow;
+        &::-webkit-input-placeholder {
+          color: $font_tertiary;
+        }
+      }
+  
+      &__login {
+        border: 0;
+        outline: 0;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        background-color: $primary;
+        color: $font_primary;
+        border-radius: 1rem;
+        width: max-content;
+        padding: .5rem 1.5rem;
+        align-self: center;
+      }
+    }
+  }
+
+}
