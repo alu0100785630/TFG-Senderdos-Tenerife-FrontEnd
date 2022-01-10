@@ -14,6 +14,8 @@ block content
       .senderos__items
         - let average = 3.6
         - let rating = (average / 5) * 100
+        - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+        - let senderoDate = new Date('2022-04-11T10:20:00Z')
         each val in [1, 2, 3, 4, 5, 6]
           .senderos__items--single(class=val)
             .sendero-container
@@ -34,7 +36,7 @@ block content
                 .sendero-data__location Buenavista del Norte
                 
                 .sendero-data__date
-                  .sendero-data__date--date Junio 2022
+                  .sendero-data__date--date= `${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}`
                   .sendero-data__date--duration 5h
                 
                 .sendero-data__book
