@@ -1,0 +1,13 @@
+.fronpage-wrapper {
+  height: 100%;
+  width: 100%;
+  // background-color: $primary;
+  background-image: linear-gradient(to right top, transparent 60%, $primary);
+  position: relative;
+
+  .hikers {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+  }
+}

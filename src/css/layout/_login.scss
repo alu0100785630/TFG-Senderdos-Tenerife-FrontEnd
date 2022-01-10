@@ -10,8 +10,9 @@
     background-color: $bg_color_white;
     padding: 2.5rem 4.5rem;
     box-shadow: $box_shadow;
+    border-radius: 1rem;
     .logo-dark {
-      max-height: 8rem;
+      max-height: 6rem;
       width: 100%;
       object-fit: contain;
       object-position: center;
