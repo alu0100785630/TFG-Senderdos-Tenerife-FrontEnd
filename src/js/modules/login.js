@@ -30,7 +30,7 @@ export const loginUser = () => {
         };
         request.onload = () => {
           // console.log('loading');
-          console.log(JSON.stringify(dataObj));
+          // console.log(JSON.stringify(dataObj));
         };
         //La API espera un JSON, si no hacemos stringify estaremos mandando un objeto JS
         request.send(JSON.stringify(dataObj));
@@ -38,6 +38,33 @@ export const loginUser = () => {
       else {
         console.log('add validation');
       }
+    });
+  }
+}
+
+export const logOutUser = () => {
+  if (document.querySelector('.log-out')) {
+    document.querySelector('.log-out').addEventListener('click', (event) => {
+
+      event.preventDefault();
+ 
+      let request = new XMLHttpRequest();
+      
+      request.open('GET', 'http://localhost:6700/api/usuarios/logout');
+
+      //For debugging
+      request.onreadystatechange = () => {
+        // console.log(request);
+        if(request.readyState == 4 && request.status == 200){
+          window.setTimeout(() => {
+            location.assign('http://localhost:6700/login');
+          }, 1000);
+        }
+      };
+      request.onload = () => {
+      };
+      //La API espera un JSON, si no hacemos stringify estaremos mandando un objeto JS
+      request.send();
     });
   }
 }

@@ -4,6 +4,7 @@ import * as generalFunctions from '../modules/general';
 import { menuFunctions } from '../modules/menu';
 import { paginate } from '../modules/pagination';
 import { loginUser } from '../modules/login';
+import { logOutUser } from '../modules/login';
 
 export const run = ()=> {
   menuFunctions();
@@ -13,6 +14,7 @@ export const run = ()=> {
   generalFunctions.mapRender();
 
   loginUser();
+  logOutUser();
 
   console.log('Main Script Runnning | App started');
 }

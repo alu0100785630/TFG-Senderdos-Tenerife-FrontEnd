@@ -3,7 +3,7 @@ header
     a.nav__logo-link(href='./')
       .header-logo
         img(src=require('../img/menu/teide_logo.png').default alt='TFG Senderos Tenerife logo')
-    if usuario
+    if !usuario
       .user-links
         a.user-link.profile(href='/perfil')
           img.user-img(src=require('../img/usuarios/usuario.png').default alt='Foto de perfil de Usuario')

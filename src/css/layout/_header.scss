@@ -17,6 +17,7 @@ header {
     }
     .user-links, .login-links {
       .user-link, .login-link{
+        cursor: pointer;
         color: $font_primary;
         &:not(:last-child) {
           margin-right: 2.5rem;
