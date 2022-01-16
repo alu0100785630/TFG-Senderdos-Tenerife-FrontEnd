@@ -9,36 +9,39 @@ block content
           ul.senderos__data--query-pagination
 
           .senderos__data--query-search
-            input.search(type='text' name='search' placeholder='Buscar...')
+            input#sendero-search.search(type='text' name='search' placeholder='Buscar...')
       
-      .senderos__items
-        - let average = 3.6
-        - let rating = (average / 5) * 100
-        - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        - let senderoDate = new Date('2022-04-11T10:20:00Z')
-        each val in [1, 2, 3, 4, 5, 6]
-          .senderos__items--single(class=val)
-            .sendero-container
-              img.sendero-img(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
-              .sendero-data
-                .sendero-data__title
-                  h3.sendero-data__title--name Ruta de Masca
-                  span.sendero-data__title--dificultad.dificil Difícil
-                
-                .sendero-data__info
-                  .sendero-data__info--rating
-                    .reviews-avg
-                      .empty-stars
-                      .full-stars(style=`width: ${rating}%`)
-                    .reviews-avg-n= average
-                  .sendero-data__info--price 35€
-                
-                .sendero-data__location Buenavista del Norte
-                
-                .sendero-data__date
-                  .sendero-data__date--date= `${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}`
-                  .sendero-data__date--duration 5h
-                
-                .sendero-data__book
-                  a.info-button.ov-button(href='./') Info
-                  .book-button.ov-button Reserva
+      .senderos-main-wrapper
+        .spinner-container
+          .spinner
+        .senderos-main-wrapper__items
+          - let average = 3.6
+          - let rating = (average / 5) * 100
+          - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+          - let senderoDate = new Date('2022-04-11T10:20:00Z')
+          each val in [1, 2, 3, 4, 5, 6, 7, 8]
+            .senderos-main-wrapper__items--single(class=val)
+              .sendero-container
+                img.sendero-img(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
+                .sendero-data
+                  .sendero-data__title
+                    h3.sendero-data__title--name Ruta de Masca
+                    span.sendero-data__title--dificultad.dificil Difícil
+                  
+                  .sendero-data__info
+                    .sendero-data__info--rating
+                      .reviews-avg
+                        .empty-stars
+                        .full-stars(style=`width: ${rating}%`)
+                      .reviews-avg-n= average
+                    .sendero-data__info--price 35€
+                  
+                  .sendero-data__location Buenavista del Norte
+                  
+                  .sendero-data__date
+                    .sendero-data__date--date= `${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}`
+                    .sendero-data__date--duration 5h
+                  
+                  .sendero-data__book
+                    a.info-button.ov-button(href='./') Info
+                    .book-button.ov-button Reserva

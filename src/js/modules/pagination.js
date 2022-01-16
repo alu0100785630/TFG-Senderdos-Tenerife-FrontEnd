@@ -3,7 +3,7 @@ export const paginate = ()=> {
   let currentPage = 1;
   let itemsPerPage = 6;
   //Add the class that contains the item
-  let itemsClass = '.senderos__items--single';
+  let itemsClass = '.senderos-main-wrapper__items--single';
   //Container of pagination
   let pageContainer = document.querySelector('.senderos__data--query-pagination');
 

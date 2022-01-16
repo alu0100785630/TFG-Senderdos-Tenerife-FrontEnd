@@ -5,10 +5,12 @@ import { menuFunctions } from '../modules/menu';
 import { paginate } from '../modules/pagination';
 import { loginUser } from '../modules/login';
 import { logOutUser } from '../modules/login';
+import { dynamicSearch } from '../modules/search';
 
 export const run = ()=> {
   menuFunctions();
   paginate();
+  dynamicSearch();
   generalFunctions.greetingFunction();
   generalFunctions.senderoReviews();
   generalFunctions.mapRender();

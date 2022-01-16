@@ -31,7 +31,7 @@ export const mapRender = ()=> {
       container: 'tfg-map', // container ID
       style: 'mapbox://styles/aldordar/cky1dy36d0jzl14qcyhuceb3q', // style URL
       zoom: 4,
-      maxZoom: 13.5
+      maxZoom: 13
     });
   
     let routeLocations = JSON.parse(mapEl.dataset.locations);

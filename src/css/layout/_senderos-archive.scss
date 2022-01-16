@@ -1,3 +1,8 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .archive {
   .senderos {
     padding: 60px 0;
@@ -88,171 +93,221 @@
 
       }
     }
-    &__items {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 3%;
-      grid-row-gap: 35px;
-      padding-top: 4.5rem;
 
-      &--single {
-        background-color: $primary;
-        box-shadow: $box_shadow;
-        .sendero-container {
-          display: flex;
-
-          .sendero-img {
-            width: 48%;
-            object-fit: cover;
-            object-position: center;
-            opacity: .9;
+    .senderos-main-wrapper {
+      position: relative;
+      padding-top: 4.4rem;
+      .spinner-container {
+        position: absolute;
+        backdrop-filter: blur(2px);
+        background-color: rgba(255, 255, 255, 0.05);
+        z-index: 0;
+        top: 4.3rem;
+        left: 0;
+        width: 102%;
+        min-height: 60rem;
+        opacity: 0;
+        visibility: hidden;
+        &.show {
+          transition: .4s all;
+          opacity: 1;
+          visibility: visible;
+          z-index: 2;
+        }
+        .spinner {
+          border: 4px solid #45acf0;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          border-left-color: $primary;
+          position: absolute;
+          top: 33%;
+          left: 50%;
+          z-index: 5;
+          transform: translate(-50%, -50%);
+          
+          animation: spin 1s linear infinite;
+        }
+      }
+      &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 3%;
+        grid-row-gap: 35px;
+  
+        .no-results {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 5rem;
+          font-size: 1.6rem;
+          z-index: 3;
+          span {
+            font-weight: 600;
           }
-          .sendero-data {
-            width: 52%;
-            padding: 1.5rem 2rem;
-            font-size: 1.4rem;
-            background-color: $bg_color_white;
-
-            &__title {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding-bottom: .7rem;
-              border-bottom: 1px solid $font_tertiary;
-              &--name {
-                color: $font_secondary;
-                font-size: 1.5rem;
-                margin: 0;
-              }
-              &--dificultad {
-                font-style: italic;
-                font-size: 1.4rem;
-              }
-              &--dificultad.dificil {
-                color: #d71b1b;
-              }
-              &--dificultad.medio {
-                color: #d39e01;
-              }
-              &--dificultad.facil {
-                color: #22a922;
-              }
+        }
+  
+        &--single {
+          position: relative;
+          z-index: 1;
+          background-color: $primary;
+          box-shadow: $box_shadow;
+          .sendero-container {
+            display: flex;
+  
+            .sendero-img {
+              width: 48%;
+              object-fit: cover;
+              object-position: center;
+              opacity: .9;
             }
-
-            &__info {
-              margin-top: .7rem;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              &--rating {
+            .sendero-data {
+              width: 52%;
+              padding: 1.5rem 2rem;
+              font-size: 1.4rem;
+              background-color: $bg_color_white;
+  
+              &__title {
                 display: flex;
-
-                .reviews-avg-n {
-                  margin-left: 0.5rem;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: .7rem;
+                border-bottom: 1px solid $font_tertiary;
+                &--name {
+                  color: $font_secondary;
+                  font-size: 1.5rem;
+                  margin: 0;
+                }
+                &--dificultad {
+                  font-style: italic;
                   font-size: 1.4rem;
                 }
-
-                .reviews-avg {
-                  position: relative;
-                  vertical-align: middle;
-                  display: inline-block;
-                  color: $bg_color_white;
-                  overflow: hidden;
-          
-                  .full-stars {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    color: $accent;
-                  }
-          
-                  .empty-stars:before, .full-stars:before {
-                    content: '\2605\2605\2605\2605\2605';
-                    font-size: 1.5rem;
-                  }
-                  .empty-stars:before {
-                    -webkit-text-stroke: 1px $accent;
-                  }
-                  .full-stars:before {
-                    -webkit-text-stroke: 1px $accent;
-                  }
+                &--dificultad.dificil {
+                  color: #d71b1b;
+                }
+                &--dificultad.medio {
+                  color: #d39e01;
+                }
+                &--dificultad.facil {
+                  color: #22a922;
                 }
               }
-              &--price {
-                font-weight: 600;
+  
+              &__info {
+                margin-top: .7rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &--rating {
+                  display: flex;
+  
+                  .reviews-avg-n {
+                    margin-left: 0.5rem;
+                    font-size: 1.4rem;
+                  }
+  
+                  .reviews-avg {
+                    position: relative;
+                    vertical-align: middle;
+                    display: inline-block;
+                    color: $bg_color_white;
+                    overflow: hidden;
+            
+                    .full-stars {
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      color: $accent;
+                    }
+            
+                    .empty-stars:before, .full-stars:before {
+                      content: '\2605\2605\2605\2605\2605';
+                      font-size: 1.5rem;
+                    }
+                    .empty-stars:before {
+                      -webkit-text-stroke: 1px $accent;
+                    }
+                    .full-stars:before {
+                      -webkit-text-stroke: 1px $accent;
+                    }
+                  }
+                }
+                &--price {
+                  font-weight: 600;
+                }
               }
-            }
-            &__location {
-              margin-top: .9rem;
-              line-height: 1;
-              color: $font_secondary;
-              &::before {
-                font-family: "Font Awesome 5 Free";
-                content: '\f3c5';
-                font-weight: 600;
-                margin-right: .5rem;
-                display: inline-block;
-                color: $font_tertiary;
-              }
-            }
-            &__date {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-top: .9rem;
-              line-height: 1;
-              color: $font_secondary;
-
-              &--date {
+              &__location {
+                margin-top: .9rem;
+                line-height: 1;
+                color: $font_secondary;
                 &::before {
                   font-family: "Font Awesome 5 Free";
-                  content: '\f073';
+                  content: '\f3c5';
                   font-weight: 600;
                   margin-right: .5rem;
                   display: inline-block;
                   color: $font_tertiary;
                 }
               }
-              &--duration {
-                color: $primary;
-              }
-            }
-
-            &__book {
-              margin-top: 1.5rem;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              .ov-button {
-                cursor: pointer;
+              &__date {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: .9rem;
                 line-height: 1;
-                padding: .5rem 1rem;
-                font-size: 1.4rem;
-                border-radius: .5rem;
-              }
-              .book-button {
-                color: $font_primary;
-                background-color: $accent;
-              }
-              .info-button {
-                color: $primary;
-                border: 1px solid $primary;
-                &:hover {
-                  text-decoration: none;
-                  color: $font_primary;
-                  background-color: $primary;
-                  transition: all .2s;
+                color: $font_secondary;
+  
+                &--date {
+                  &::before {
+                    font-family: "Font Awesome 5 Free";
+                    content: '\f073';
+                    font-weight: 600;
+                    margin-right: .5rem;
+                    display: inline-block;
+                    color: $font_tertiary;
+                  }
                 }
-                &::before {
-                  font-family: 'Material Icons Outlined';
-                  content: '\e8fd';
-                  font-weight: 600;
-                  margin-right: .5rem;
-                  margin-left: -.4rem;
-                  display: inline-block;
-                  vertical-align: bottom;
+                &--duration {
+                  color: $primary;
+                }
+              }
+  
+              &__book {
+                margin-top: 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .ov-button {
+                  cursor: pointer;
+                  line-height: 1;
+                  padding: .5rem 1rem;
+                  font-size: 1.4rem;
+                  border-radius: .5rem;
+                }
+                .book-button {
+                  color: $font_primary;
+                  background-color: $accent;
+                }
+                .info-button {
+                  color: $primary;
+                  border: 1px solid $primary;
+                  &:hover {
+                    text-decoration: none;
+                    color: $font_primary;
+                    background-color: $primary;
+                    transition: all .2s;
+                  }
+                  &::before {
+                    font-family: 'Material Icons Outlined';
+                    content: '\e8fd';
+                    font-weight: 600;
+                    margin-right: .5rem;
+                    margin-left: -.4rem;
+                    display: inline-block;
+                    vertical-align: bottom;
+                  }
                 }
               }
             }
@@ -260,5 +315,6 @@
         }
       }
     }
+
   }
 }
