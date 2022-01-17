@@ -5,7 +5,7 @@ block append head
   link(href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet')
 
 block content
-  section.sendero-wrapper
+  section.sendero-wrapper(data-sendero-id="61e2f6f5b81f8c282c23980d")
     .hero
       img.hero__image(src=require('../img/senderos/ruta-de-masca.png').default alt='Nombre Sendero Image')
     
@@ -46,6 +46,9 @@ block content
               .sendero-content__desc--details-w-duration 4 horas
             .sendero-content__desc--details-map
               a.go-to-map(href="#tfg-map")  Ver Mapa
+
+            if !usuario
+              .add-review(data-user-id="609c90276c2d13834d07848d") Añade una valoración
       
       .sendero-reviews
         each val in [1, 2 ,3, 4]

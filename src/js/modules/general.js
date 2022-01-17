@@ -2,6 +2,30 @@ export const greetingFunction = ()=> {
   console.log('%cGreetings from general', 'color: blue; font-weight: bold;');
 }
 
+export const clickFunctions = () => {
+  document.addEventListener('click', (e) => {
+    let elementTarget = e.target;
+    if (elementTarget.classList.contains('add-review')) {
+      document.querySelector('.popup').classList.add('popup-visible');
+      document.querySelector('.popup__review').classList.add('pop');
+    }
+
+    if (elementTarget.classList.contains('popup__review--close') || elementTarget.classList.contains('popup-visible')){
+      document.querySelector('.popup__review').classList.remove('pop');
+      document.querySelector('.popup').classList.remove('popup-visible');
+      document.querySelector('.review-content').classList.remove('error');
+      document.querySelector('.error-empty').classList.remove('show');
+    }
+  });
+
+  if (document.querySelector('.review-content')) {
+    document.querySelector('.review-content').addEventListener('focus', () => {
+      document.querySelector('.review-content').classList.remove('error');
+      document.querySelector('.error-empty').classList.remove('show');
+    });
+  }
+}
+
 export const senderoReviews = () => {
   if (document.querySelector('.sendero-reviews')) {
 

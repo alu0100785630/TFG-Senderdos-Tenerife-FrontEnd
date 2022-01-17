@@ -137,7 +137,7 @@
                 margin-left: .5rem;
               }
               span.dificil {
-                color: #d71b1b;
+                color: $red;
               }
               span.medio {
                 color: #d39e01;
@@ -166,6 +166,8 @@
           &-map {
             margin-top: 6rem;
             .go-to-map {
+              display: block;
+              width: max-content;
               color: $primary;
               border-radius: 5px;
               border: 1px solid $primary;
@@ -182,6 +184,20 @@
                 margin-right: 2px;
                 margin-left: -2px;
               }
+            }
+          }
+          .add-review {
+            margin-top: 2.5rem;
+            cursor: pointer;
+            text-decoration: underline;
+            font-family: 'Inter Med';
+            &::after {
+              content: '\ea77';
+              font-family: 'Material Icons Outlined';
+              font-weight: 600;
+              margin-left: .7rem;
+              display: inline-block;
+              vertical-align: bottom;
             }
           }
         }
@@ -247,6 +263,7 @@
         border: 1px solid #a1a9b259;
         box-shadow: $box_shadow;
         max-width: 27.7rem;
+        min-width: 27.7rem;
         border-radius: 5px;
         &--user {
           display: flex;

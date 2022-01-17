@@ -1,0 +1,178 @@
+.popup {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(20, 42, 63, .6);
+  z-index: 13;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s .2s;
+
+  &__review {
+    background-color: $bg_color_white;
+    border-radius: 1px;
+    opacity: 0;
+    width: 85%;
+    max-width: 45rem;
+    padding: 4rem;
+    visibility: hidden;
+    position: fixed;
+    z-index: 35;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%) scale(.8);
+    transition: all .2s;
+
+    
+    &--close {
+      transform: none;
+      z-index: 13;
+      font-size: 25px;
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      cursor: pointer;
+      color: $primary;
+    }
+    
+    &--title {
+      font-size: 1.6rem;
+      color: $primary;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+    }
+
+    &--content {
+      min-height: 39.05rem;
+      position: relative;
+
+      .success-review, .error-review {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &::before {
+          font-family: 'Material Icons';
+          display: block;
+          font-size: 4rem;
+          margin-bottom: 2rem;
+        }
+      }
+      .success-review {
+        &::before {
+          content: '\e86c';
+          color: #179b17;
+        }
+      }
+      .error-review {
+        &::before {
+          content: '\e160';
+          color: $red;
+        }
+      }
+
+
+      .star-rating {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin: 2.5rem auto;
+        position: relative;
+
+        input {
+          display: none;
+          &:checked ~ label:before{
+            content:'\2605';
+          }
+        }
+        label {
+          cursor: pointer;
+          width: 2.7rem;
+          height: 2.7rem;
+          font-family: 'Inter';
+          font-size: 2.7rem;
+          transition: 0.2s ease;
+          color: $accent;
+          &:hover {
+            color: #e9aa47;
+            transition: 0.2s ease;
+          }
+          &:active::before {
+            transform:scale(1.1);
+          }
+          &::before {
+            content: '\2606';
+            position: absolute;
+            top: 0;
+            line-height: 1;
+          }
+        }
+      }
+
+      .review-content {
+        width: 100%;
+        font-size: 1.5rem;
+        border: 1px solid transparent;
+        outline: 0;
+        padding: 1rem 1.5rem;
+        background-color: #b8bfc72b;
+        line-height: 1.5;
+        color: $primary;
+        &::-webkit-input-placeholder {
+          color: $font_tertiary;
+        }
+        &.error {
+          border-color: $red;
+        }
+      }
+      .error-empty {
+        color: $red;
+        font-size: 1.3rem;
+        opacity: 0;
+        visibility: hidden;
+        &.show {
+          opacity: 1;
+          visibility: visible;
+          transition: all .2s;
+        }
+      }
+
+      .send-review {
+        cursor: pointer;
+        width: max-content;
+        margin: 2.5rem auto 0 auto;
+        background-color: #d1af7a;
+        padding: .5rem 2rem;
+        color: #FFFFFF;
+        font-size: 1.5rem;
+        border-radius: 1em;
+        font-family: "Inter Med";
+      }
+    }
+  }
+
+}
+
+.popup.popup-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all .32s;
+  backdrop-filter: blur(2px);
+}
+
+.popup__review.pop {
+  opacity: 1;
+  visibility: visible;
+  transition: all .32s .38s;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}

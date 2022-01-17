@@ -109,7 +109,7 @@
         opacity: 0;
         visibility: hidden;
         &.show {
-          transition: .4s all;
+          transition: all .2s;
           opacity: 1;
           visibility: visible;
           z-index: 2;
@@ -183,7 +183,7 @@
                   font-size: 1.4rem;
                 }
                 &--dificultad.dificil {
-                  color: #d71b1b;
+                  color: $red;
                 }
                 &--dificultad.medio {
                   color: #d39e01;
