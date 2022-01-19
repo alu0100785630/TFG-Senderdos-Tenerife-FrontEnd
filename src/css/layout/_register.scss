@@ -1,34 +1,35 @@
-.login-section {
+.register-section {
   display: flex;
   align-items: center;
+
   position: absolute;
   top: 35rem;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  .login-image {
+  .register-image {
     width: 50rem;
     max-width: 50rem;
     img {
       width: 100%;
-      object-fit: cover;
-      height: auto;
+      object-fit: contain;
+      height: 32rem;
     }
   }
-
-  .login-form-wrapper.error {
+  .register-form-wrapper.error {
     border: 1px solid $red;
   }
-  .login-form-wrapper {
+
+  .register-form-wrapper {
     background-color: $bg_color_white;
     padding: 2.5rem 4.5rem;
-    margin-left: 5rem;
     box-shadow: $box_shadow;
     border-radius: 1rem;
+    position: relative;
     min-width: 36rem;
-    min-height: 45.294rem;
-    position: relative;;
-    .success-login {
+    min-height: 56.319rem;
+    margin-left: 5rem;
+    .success-register {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -53,7 +54,7 @@
   
     }
   
-    .login-header {
+    .register-header {
       margin-top: 2rem;
       text-align: center;
       font-family: 'Inter Med';
@@ -64,7 +65,7 @@
       display: flex;
       flex-direction: column;
       margin-top: 2rem;
-      .error-login {
+      .error-register {
         font-size: 1.3rem;
         color: $red;
         margin-bottom: 1rem;
@@ -91,7 +92,7 @@
         font-size: 1.5rem;
       }
       &__input {
-        border: 0;
+        border: 1px solid transparent;
         outline: 0;
         font-size: 1.5rem;
         padding: .7rem 1.5rem;
@@ -103,9 +104,12 @@
         &::-webkit-input-placeholder {
           color: $font_tertiary;
         }
+        &.error {
+          border: 1px solid $red;
+        }
       }
   
-      &__login {
+      &__register {
         border: 0;
         outline: 0;
         margin-top: 2rem;

@@ -5,6 +5,7 @@ import { menuFunctions } from '../modules/menu';
 import { paginate } from '../modules/pagination';
 import { loginUser } from '../modules/login';
 import { logOutUser } from '../modules/login';
+import { registerUser } from '../modules/login';
 import { dynamicSearch } from '../modules/search';
 import { addReview } from '../modules/add_review';
 
@@ -19,6 +20,7 @@ export const run = ()=> {
 
   loginUser();
   logOutUser();
+  registerUser();
 
   addReview();
 
