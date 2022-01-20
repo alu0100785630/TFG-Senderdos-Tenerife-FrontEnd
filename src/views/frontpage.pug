@@ -1,5 +1,15 @@
 extends base
 
 block content
-  main.fronpage-wrapper
-    img.hikers(src=require('../img/hiker.png').default alt='TFG Senderos Tenerife Logo Dark')
+  main.fronpage-wrapper.container
+    .main-img-wrapper
+      img.main-img(src=require('../img/teide.jpg').default alt='TFG Senderos Tenerife Logo Dark')
+      h1.fp-heading La plataforma definitiva de senderos de Tenerife
+    .text-content 
+      //- h1.fp-heading La plataforma definitiva de senderos de Tenerife
+    .sec-img-wrapper
+      img.sec-img(src=require('../img/draguillo-benijo.jpg').default alt='TFG Senderos Tenerife Logo Dark')
+      a.cta-link.accent(href="") Crea tu cuenta 
+    .third-img-wrapper
+      img.third-img(src=require('../img/IMG-20220109-WA0010.jpg').default alt='TFG Senderos Tenerife Logo Dark')
+      a.cta-link(href="") Senderos 
