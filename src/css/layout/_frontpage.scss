@@ -7,7 +7,7 @@
   transform: translate(-50%, -50%);
   position: absolute;
   display: grid;
-  grid-gap: 0 4rem;
+  grid-gap: 3rem 4rem;
   grid-template-rows: 50% 50%;
   grid-template-columns: 45% repeat(2, 1fr);
   grid-template-areas: 'main-img text text' 'main-img sec-img third-img';
@@ -20,13 +20,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      animation: fadeIn 1.3s ease-in;
+      animation: fadeInLeft .6s ease-in;
       backface-visibility: hidden;
       border-radius: 1rem;
       filter: saturate(1.1) contrast(0.7) brightness(0.8);
     }
     .fp-heading {
-      animation: fadeIn .3s ease-in 1s;
+      animation: fadeIn .3s ease-in .6s;
       backface-visibility: hidden;
       animation-fill-mode: backwards;
       color: $bg_color_white;
@@ -62,6 +62,49 @@
   .text-content {
     position: relative;
     grid-area: text;
+    background-color: $bg_color_white;
+    box-shadow: $box_shadow;
+    animation: fadeInTop .6s .3s;
+    backface-visibility: hidden;
+    animation-fill-mode: backwards;
+    border-radius: 1rem;
+    padding: 4rem 5.2rem;
+    h2 {
+      font-family: 'Inter Med';
+      margin-top: .5rem;
+    }
+    h3 {
+      margin-top: 3rem;
+    }
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      list-style: none;
+      margin-top: 2rem;
+      width: 99%;
+      li {
+        padding: .8rem 0;
+        white-space: nowrap;
+        &::before {
+          text-align: center;
+          font-family: 'Material Icons';
+          display: inline-block;
+          font-size: 2rem;
+          line-height: 0;
+          vertical-align: middle;
+          margin-right: 1rem;
+        }
+        &.search::before { content: '\e8b6'; }
+        &.map::before { content: '\e0c8'; }
+        &.user::before { content: '\e7fd'; }
+        &.star::before { content: '\f0ec'; }
+        &.paper::before { content: '\e0b7'; }
+        &.book::before { 
+          content: '\e916'; 
+          font-family: 'Material Icons Outlined';
+        }
+      }
+    }
   }
   .sec-img, .third-img {
     width: 100%;
@@ -86,7 +129,7 @@
       font-family: 'Inter';
       padding: .7rem 1.7rem;
       border-radius: 2rem;
-      animation: fadeIn .4s ease-in 1.2s;
+      animation: fadeIn .4s ease-in .6s;
       backface-visibility: hidden;
       animation-fill-mode: backwards;
       &::after {
@@ -106,7 +149,7 @@
   }
 
   .sec-img-wrapper {
-    animation: fadeInBottom .3s ease-in .7s;
+    animation: fadeInBottom .3s ease-in .3s;
     backface-visibility: hidden;
     animation-fill-mode: backwards;
     grid-area: sec-img;
@@ -116,7 +159,7 @@
   }
   .third-img-wrapper {
     grid-area: third-img;
-    animation: fadeInBottom .3s ease-in .9s;
+    animation: fadeInBottom .3s ease-in .5s;
     backface-visibility: hidden;
     animation-fill-mode: backwards;
   }
@@ -135,7 +178,29 @@
 @keyframes fadeInBottom {
   0% {
     opacity: 0;
-    transform: translateY(2.2rem);
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
   }
   100% {
     opacity: 1;
