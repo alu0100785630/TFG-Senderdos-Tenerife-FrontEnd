@@ -211,8 +211,22 @@
       .slick-list {
         margin: 0 3rem;
         .slick-track {
+          display: flex !important;
           .slick-slide {
+            height: inherit !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin:0 2rem;
+            div {
+              height: 100%;
+              .sendero-reviews__single-review {
+                height: 100%;
+                &--user, &--rating {
+                  height: auto;
+                }
+              }
+            }
           }
         }
       }
