@@ -1,0 +1,217 @@
+.create-section {
+  position: absolute;
+  background-color: $bg_color_white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem 8rem;
+  width: 100%;
+  border-radius: 1rem;
+  .create-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-family: 'Inter Med';
+    }
+    .add-button {
+      background-color: $primary;
+      color: $font_primary;
+      padding: .7rem 1.5rem;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    .error-create {
+      font-size: 1.3rem;
+      color: $red;
+      margin-bottom: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      &.show {
+        opacity: 1;
+        visibility: visible;
+        transition: all .2s;
+      }
+    }
+    .form-columns {
+      display: flex;
+      width: 100%;
+      gap: 5rem;
+      .form-col-group {
+        width: 100%;
+      }
+    }
+    .form-group-wrapper {
+      // display: flex;
+      width: 100%;
+      .table-locations {
+        display:flex;
+        width: 100%;
+        margin-top: 1rem;
+        gap: 3rem;
+        font-family: 'Inter Med';
+        span {
+          width: 50%;
+        }
+      }
+      .add-more {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2rem;
+        cursor: pointer;
+        &::before {
+          content: '\e148';
+          font-family: 'Material Icons Outlined';
+          font-size: 2rem;
+          display: inline-block;
+          line-height: 1.1;
+          margin-right: .7rem;
+        }
+      }
+      .locations-container {
+        max-height: 17rem;
+        padding-bottom: 1rem;
+        overflow-y: auto;
+        .locations {
+          display: flex;
+          width: 100%;
+          gap: 3rem;
+          margin-top: 1rem;
+          input {
+            width: 50%;
+            border: 0;
+            max-height: 3.2rem;
+            outline: 0;
+            font-size: 1.5rem;
+            padding: .7rem 1.5rem;
+            background-color: #b8bfc72b;
+            border-radius: 1rem;
+            line-height: 1.2;
+            color: $primary;
+            box-shadow: $box_shadow;
+            &::-webkit-input-placeholder {
+              color: $font_tertiary;
+            }
+          }
+        }
+      }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+      .register-mess {
+        margin-top: .5rem;
+        font-size: 1.25rem;
+      }
+    }
+    &__label {
+      font-size: 1.5rem;
+    }
+    .select-wrapper {
+      position: relative;
+      &::after {
+        content: '\e313';
+        text-align: center;
+        font-family: 'Material Icons';
+        position: absolute;
+        font-size: 2rem;
+        line-height: 0;
+        top: 50%;
+        right: .5rem;
+      }
+    }
+    textarea {
+      width: 100%;
+      font-size: 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid transparent;
+      outline: 0;
+      padding: 1rem 1.5rem;
+      background-color: #b8bfc72b;
+      box-shadow: $box_shadow;
+      line-height: 1.5;
+      color: $primary;
+      &::-webkit-input-placeholder {
+        color: $font_tertiary;
+      }
+    }
+    select {
+      width: 100%;
+      cursor: pointer;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      option {
+        cursor: pointer;
+      }
+    }
+    &__input, select {
+      border: 0;
+      max-height: 3.2rem;
+      outline: 0;
+      font-size: 1.5rem;
+      padding: .7rem 1.5rem;
+      background-color: #b8bfc72b;
+      border-radius: 1rem;
+      line-height: 1.2;
+      color: $primary;
+      box-shadow: $box_shadow;
+      &::-webkit-input-placeholder {
+        color: $font_tertiary;
+      }
+    }
+
+    .file-input {
+      border: 1px dashed $font_tertiary;
+      padding: 2rem;
+    }
+    .file-input {
+      &::-webkit-file-upload-button {
+        visibility: hidden;
+      }
+      &::before {
+        content: 'Sube una imagen';
+        display: inline-block;
+        border: 1px solid $primary;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        cursor: pointer;
+        margin-right: -9rem;
+        font-family: 'Inter Med';
+        font-size: 1.3rem;
+      }
+    }
+
+    &__login {
+      border: 0;
+      outline: 0;
+      font-size: 1.5rem;
+      background-color: $primary;
+      color: $font_primary;
+      border-radius: 1rem;
+      width: max-content;
+      padding: .5rem 1.8rem .5rem 1.5rem;
+      align-self: center;
+      position: absolute;
+      top: 4rem;
+      right: 8rem;
+      &::before {
+        content: '\e148';
+        font-family: 'Material Icons Outlined';
+        font-size: 2rem;
+        display: inline-block;
+        line-height: 1.2;
+        margin-right: .7rem;
+        vertical-align: bottom;
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { logOutUser } from '../modules/login';
 import { registerUser } from '../modules/login';
 import { dynamicSearch } from '../modules/search';
 import { addReview } from '../modules/add_review';
+import { createSendero } from '../modules/create';
 
 export const run = ()=> {
   menuFunctions();
@@ -21,6 +22,7 @@ export const run = ()=> {
   loginUser();
   logOutUser();
   registerUser();
+  createSendero();
 
   addReview();
 
