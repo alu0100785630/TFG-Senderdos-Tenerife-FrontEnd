@@ -23,11 +23,12 @@
   .form {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    // margin-top: 2rem;
     .error-create {
       font-size: 1.3rem;
       color: $red;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      margin-top: 1rem;
       opacity: 0;
       visibility: hidden;
       &.show {
@@ -94,6 +95,9 @@
             box-shadow: $box_shadow;
             &::-webkit-input-placeholder {
               color: $font_tertiary;
+            }
+            &.novalid {
+              border: 1px solid $red;
             }
           }
         }
@@ -162,11 +166,16 @@
       line-height: 1.2;
       color: $primary;
       box-shadow: $box_shadow;
+      &.novalid {
+        border: 1px solid $red;
+      }
       &::-webkit-input-placeholder {
         color: $font_tertiary;
       }
     }
-
+    .file-input.novalid {
+      border: 1px dashed $red !important;
+    }
     .file-input {
       border: 1px dashed $font_tertiary;
       padding: 2rem;
@@ -190,8 +199,9 @@
       }
     }
 
-    &__login {
+    &__create {
       border: 0;
+      cursor: pointer;
       outline: 0;
       font-size: 1.5rem;
       background-color: $primary;
