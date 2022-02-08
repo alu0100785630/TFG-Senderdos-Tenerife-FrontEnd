@@ -35,19 +35,28 @@ export const createSendero = () => {
         executeFlag = false;
 
       if (executeFlag) {
+        let descD = formFields.description.value.split(/\r\n|\r|\n/gi).map(el => {
+          if (el == '') return;
+          el = `<p>${el}</p>`;
+          return el;
+        });
+
         responseObjPost.name = formFields.name.value;
         responseObjPost.duration = formFields.duration.value;
         responseObjPost.price = formFields.price.value;
         responseObjPost.difficulty = formFields.difficulty.value;
-        responseObjPost.description = formFields.description.value;
+        responseObjPost.description = descD.join('');
         responseObjPost.mainLocation = formFields.mainLocation.value;
         responseObjPost.startDate = formFields.startDate.value;
-        responseObjPost.image = formFields.image.value;
+        responseObjPost.image = formFields.image.files[0].name;
         responseObjPost.routeLocations = [];
 
         document.querySelectorAll('.locations').forEach(location => {
           let locObj = {}
-          locObj.coordenadas = location.querySelector('.coordinates').value;
+
+          locObj.coordenadas = location.querySelector('.coordinates').value.split(',').map( x => {
+            return parseFloat(x);
+          });
           locObj.description = location.querySelector('.desc').value;
           locObj.type = 'Point';
           
@@ -55,7 +64,44 @@ export const createSendero = () => {
         });
 
         console.log(responseObjPost);
+
+        let request = new XMLHttpRequest();
+        let formData = new FormData();
+
+        formData.append('senderoImage', formFields.image.files[0])
+        
+        request.open('POST', 'http://localhost:6700/upload');
+  
+        request.onreadystatechange = () => {
+          if(request.readyState == 4 && request.status != 200){
+            alert('La imagen no se puede subir');
+          }
+        };
+        request.send(formData);
+
+        
+        let dRequest = new XMLHttpRequest();
+
+        dRequest.open('POST', 'http://localhost:6700/api/senderos');
+        dRequest.setRequestHeader("Content-Type", "application/json" );
+
+        dRequest.onreadystatechange = () => {
+          // console.log(dRequest);
+          if(dRequest.readyState == 4 && dRequest.status == 201){
+            let successCreate = '<div class="success-create">El sendero ha sido creado correctamente.</div>'
+            document.querySelector('.form').innerHTML = successCreate;
+            window.setTimeout(() => {
+              location.assign('http://localhost:6700/overview');
+            }, 1500);
+          }
+          if(dRequest.readyState == 4 && dRequest.status != 201){
+            alert('Ha habido un error');
+          }
+        };
+
+        dRequest.send(JSON.stringify(responseObjPost));
       }
+
     })
   }
 }

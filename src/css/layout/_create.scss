@@ -7,6 +7,7 @@
   padding: 4rem 8rem;
   width: 100%;
   border-radius: 1rem;
+  min-height: 67.1rem;
   .create-header {
     display: flex;
     justify-content: space-between;
@@ -24,6 +25,23 @@
     display: flex;
     flex-direction: column;
     // margin-top: 2rem;
+    .success-create {
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      &::before {
+        content: '\e86c';
+        text-align: center;
+        color: #179b17;
+        font-family: 'Material Icons';
+        display: block;
+        font-size: 4rem;
+        margin-bottom: 2rem;
+      }
+    }
     .error-create {
       font-size: 1.3rem;
       color: $red;
